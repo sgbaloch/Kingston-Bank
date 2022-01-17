@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.RegisterActivity">
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <EditText
+        android:id="@+id/edt_fName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="First Name"
+        app:layout_constraintEnd_toStartOf="@+id/edt_lName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintTop_toBottomOf="@id/txt_title" />
+
+    <EditText
+        android:id="@+id/edt_lName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Last Name"
+        app:layout_constraintBottom_toBottomOf="@id/edt_fName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/edt_fName" />
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintTop_toBottomOf="@id/edt_fName"
+        android:layout_marginTop="@dimen/register_editText_mTop"/>
+
+    <EditText
+        android:id="@+id/edt_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintTop_toBottomOf="@id/edt_email"
+        android:layout_marginTop="@dimen/register_editText_mTop"/>
+
+    <TextView
+        android:id="@+id/lbl_accType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Type"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/register_editText_mTop"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintTop_toBottomOf="@id/edt_address"/>
+
+
+    <RadioGroup
+        android:id="@+id/rg_accType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintTop_toBottomOf="@id/lbl_accType">
+
+        <RadioButton
+            android:id="@+id/rb_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Account"/>
+
+        <RadioButton
+            android:id="@+id/rb_saving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saving Account"
+            android:layout_marginStart="20dp"/>
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/edt_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintTop_toBottomOf="@id/rg_accType"
+        android:layout_marginTop="@dimen/register_editText_mTop"/>
+
+
+    <EditText
+        android:id="@+id/edt_pass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintTop_toBottomOf="@id/edt_username"
+        android:layout_marginTop="@dimen/register_editText_mTop"/>
+
+    <EditText
+        android:id="@+id/edt_cPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirm password"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintTop_toBottomOf="@id/edt_pass"
+        android:layout_marginTop="@dimen/register_editText_mTop"/>
+
+    <Button
+        android:id="@+id/btn_createAccount"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textColor="#ffff"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toEndOf="@id/guide_left"
+        app:layout_constraintEnd_toStartOf="@id/guide_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/shap_button"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

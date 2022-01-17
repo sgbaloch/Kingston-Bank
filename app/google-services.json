@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "969675527597",
+    "project_id": "online-banking-applicati-c5ed1",
+    "storage_bucket": "online-banking-applicati-c5ed1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969675527597:android:9d10206f62ba6f0f2a3d24",
+        "android_client_info": {
+          "package_name": "com.agbaloch.kingstonbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969675527597-0an0tgeb8j1o2vn927scjrlbgg5ovtq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIza2VFLOGbPxdNdEgHZBbb2PeicFFMYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969675527597-0an0tgeb8j1o2vn927scjrlbgg5ovtq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
