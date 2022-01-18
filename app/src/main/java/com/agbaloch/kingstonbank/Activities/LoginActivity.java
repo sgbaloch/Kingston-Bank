@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
     public void logIn(View view) {
 
         db.collection("Customer")
-                .whereEqualTo("UserName", edtUsername.getText().toString())
-                .whereEqualTo("Password", edtPassword.getText().toString())
+                .whereEqualTo("username", edtUsername.getText().toString())
+                .whereEqualTo("password", edtPassword.getText().toString())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -56,14 +57,12 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(!task.getResult().isEmpty()){
 
-                                Toast.makeText(LoginActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this,
+                                        CustomerDashboard.class);
 
+                                intent.putExtra("username", edtUsername.getText().toString());
+                                startActivity(intent);
 
-//                                DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
-//
-//                                Intent intent = new Intent(LoginActivity.this, JobSeekerActivity.class);
-//                                intent.putExtra("DOC_ID", docId);
-//                                startActivity(intent);
                             }
 
                             else{

@@ -1,24 +1,27 @@
 package com.agbaloch.kingstonbank.Models;
 
+import com.google.firebase.Timestamp;
+
 public class Transaction {
 
-    private int transactionId, accountNumber;
+    private long transactionId;
+    private long accountNumber;
     private double amount;
-    private String dateTime;
+    private Timestamp dateTime;
 
-    public int getTransactionId() {
+    public long getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(long transactionId) {
         this.transactionId = transactionId;
     }
 
-    public int getAccountNumber() {
+    public long getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(long accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -30,11 +33,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getDateTime() {
+    public Timestamp getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(Timestamp dateTime) {
         this.dateTime = dateTime;
     }
 }

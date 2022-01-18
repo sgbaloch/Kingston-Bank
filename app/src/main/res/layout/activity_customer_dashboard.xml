@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.CustomerDashboard">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_bottom_radius"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintHeight_percent="0.30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Kingston Bank"
+            android:textColor="#ffff"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="Welcome, Sarfaraz"
+            android:textColor="#ffff"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Account Number: 000001"
+            android:textColor="#ffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Balance: £200"
+            android:textColor="#ffff"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_deposit"
+        android:layout_width="@dimen/dash_btn_size"
+        android:layout_height="@dimen/dash_btn_size"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/shape_btn_dashboard"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:onClick="addMoney"
+        app:layout_constraintEnd_toStartOf="@+id/ll_withdraw"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="Add Money"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_withdraw"
+        android:layout_width="@dimen/dash_btn_size"
+        android:layout_height="@dimen/dash_btn_size"
+        android:background="@drawable/shape_btn_dashboard"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="withdrawCash"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ll_deposit"
+        app:layout_constraintTop_toTopOf="@id/ll_deposit" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Withdraw Cash"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_transfer"
+        android:layout_width="@dimen/dash_btn_size"
+        android:layout_height="@dimen/dash_btn_size"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shape_btn_dashboard"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="transferFunds"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/ll_statement"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_deposit" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Transfer Funds"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_statement"
+        android:layout_width="@dimen/dash_btn_size"
+        android:layout_height="@dimen/dash_btn_size"
+        android:background="@drawable/shape_btn_dashboard"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="viewStatement"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ll_transfer"
+        app:layout_constraintTop_toTopOf="@id/ll_transfer" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="View Statement"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

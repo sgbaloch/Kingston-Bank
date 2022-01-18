@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.DepositActivity">
+
+    <TextView
+        android:id="@+id/lbl_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Money"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <EditText
+        android:id="@+id/edt_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Please enter amount"
+        android:layout_marginTop="50dp"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_money"
+        app:layout_constraintWidth_percent="0.8"/>
+
+    <Button
+        android:id="@+id/btn_deposit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Deposit"
+        android:textAllCaps="false"
+        android:textColor="#ffff"
+        android:background="@drawable/shap_button"
+        android:onClick="depositMoney"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_amount"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/lbl_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction successful"
+        android:layout_marginTop="100dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_deposit"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

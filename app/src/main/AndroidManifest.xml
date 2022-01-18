@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.RegisterActivity"></activity>
+        <activity android:name=".Activities.StatementActivity"></activity>
+        <activity android:name=".Activities.WithdrawActivity" />
+        <activity android:name=".Activities.DepositActivity" />
+        <activity android:name=".Activities.CustomerDashboard" />
+        <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

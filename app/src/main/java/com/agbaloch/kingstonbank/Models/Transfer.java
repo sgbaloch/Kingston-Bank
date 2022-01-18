@@ -4,17 +4,17 @@ public class Transfer extends Transaction {
 
     private final int transactionType = 3;
 
-    private int targetAccount;
+    private long targetAccount;
 
     public int getTransactionType() {
         return transactionType;
     }
 
-    public int getTargetAccount() {
+    public long getTargetAccount() {
         return targetAccount;
     }
 
-    public void setTargetAccount(int targetAccount) {
+    public void setTargetAccount(long targetAccount) {
         this.targetAccount = targetAccount;
     }
 }
