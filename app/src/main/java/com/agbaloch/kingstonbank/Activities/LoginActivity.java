@@ -43,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    // This method verifies the username and password from firestore database,
+    // if successful it will take the customer to customer dashboard screen.
     public void logIn(View view) {
 
         db.collection("Customer")

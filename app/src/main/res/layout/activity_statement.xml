@@ -33,21 +33,25 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txt_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="A/C No.: 00003"
                 android:textColor="#ffff"/>
 
             <TextView
+                android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Title: Faraz Faraz"
                 android:textColor="#ffff"/>
 
             <TextView
+                android:id="@+id/txt_acc_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Current Account"
+                android:layout_marginTop="10dp"
                 android:textColor="#ffff"
                 android:layout_gravity="center_horizontal"/>
 
@@ -57,6 +61,118 @@
 
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.66"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.82"/>
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/list_item_text_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guide_date"/>
+
+        <TextView
+            android:id="@+id/txt_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Particular"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/list_item_text_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_date"
+            app:layout_constraintEnd_toStartOf="@id/guide_type"/>
+
+        <TextView
+            android:id="@+id/txt_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Money In"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/list_item_text_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_type"
+            app:layout_constraintEnd_toStartOf="@id/guide_in"/>
+
+        <TextView
+            android:id="@+id/txt_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Money Out"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/list_item_text_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_in"
+            app:layout_constraintEnd_toStartOf="@id/guide_out"/>
+
+        <TextView
+            android:id="@+id/txt_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balance"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/list_item_text_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_out"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_statement"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/list_item_statement"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        tools:targetApi="o" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

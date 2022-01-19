@@ -2,4 +2,6 @@
 <resources>
     <dimen name="register_editText_mTop">25dp</dimen>
     <dimen name="dash_btn_size">135dp</dimen>
+    <dimen name="list_item_mHorizontal">6dp</dimen>
+    <dimen name="list_item_text_size">11sp</dimen>
 </resources>

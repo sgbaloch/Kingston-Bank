@@ -77,9 +77,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         wireUIComponents();
 
+        // This is the validator object to validate customer input
         validator = new Validator(this);
         db = FirebaseFirestore.getInstance();
 
+        // set listener for validation, if successful the customer will be registered and the
+        // customer account will be created
         validator.setValidationListener(new Validator.ValidationListener() {
             @Override
             public void onValidationSucceeded() {
@@ -136,6 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
+    // This method creates a Customer object and inserts the object into the firestore database
     private void createAccount() {
 
         final Customer customer = new Customer();
@@ -146,49 +150,73 @@ public class RegisterActivity extends AppCompatActivity {
         customer.setAddress(edtAddress.getText().toString());
         customer.setPassword(edtPassword.getText().toString());
 
-        db.collection("Customer")
-                .add(customer)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("Customer").whereEqualTo("username", customer.getUsername())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                        String customerId = documentReference.getId();
-                        int accType;
+                        if (task.isSuccessful()){
 
-                        if(radioAccType.getCheckedRadioButtonId() == rbCurrent.getId()){
+                            if(task.getResult().size() > 0){
 
-                            accType = 1;
+                                Toast.makeText(RegisterActivity.this,
+                                        "Username already exist!", Toast.LENGTH_SHORT).show();
+                            }
+
+                            else{
+
+                                db.collection("Customer")
+                                        .add(customer)
+                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                            @Override
+                                            public void onSuccess(DocumentReference documentReference) {
+
+                                                String customerId = documentReference.getId();
+                                                int accType;
+
+                                                if(radioAccType.getCheckedRadioButtonId() == rbCurrent.getId()){
+
+                                                    accType = 1;
+                                                }
+                                                else {
+
+                                                    accType = 2;
+                                                }
+
+                                                requestNewAccount(accType, customerId);
+
+                                                Toast.makeText(RegisterActivity.this, "Account created successfully",
+                                                        Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                                Toast.makeText(RegisterActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            }
                         }
-                        else {
-
-                            accType = 2;
-                        }
-
-                        requestNewAccount(accType, customerId);
-
-                        Toast.makeText(RegisterActivity.this, "Account created successfully",
-                                Toast.LENGTH_SHORT).show();
-
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                        Toast.makeText(RegisterActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
     }
 
+    // After customer registered successfully, this method will create an account
+    // for the customer and inserts data into the database
     private void requestNewAccount(final int accType, final String customerId) {
 
-        db.collection("Account").orderBy("DateCreated", Query.Direction.DESCENDING)
+        db.collection("Account").orderBy("dateCreated", Query.Direction.DESCENDING)
                 .limit(1).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
                 DocumentSnapshot document = task.getResult().getDocuments().get(0);
-                long accountNumber = document.getLong("AccountNumber");
+                long accountNumber = document.getLong("accountNumber");
                 accountNumber++;
 
                 final Account account;
@@ -211,7 +239,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
 
-                        String accNo = String.format("%08d", account.getAccountNumber());
+                        String accNo = String.format("%06d", account.getAccountNumber());
                         Toast.makeText(RegisterActivity.this, "Your account no. is "
                                 + accNo, Toast.LENGTH_SHORT).show();
                     }
@@ -241,6 +269,8 @@ public class RegisterActivity extends AppCompatActivity {
         rbCurrent = findViewById(R.id.rb_current);
         rbSaving = findViewById(R.id.rb_saving);
 
+        // Implement the create button onClick listener, which calls the validate method to validate
+        // the inputted data and listen for success or failure events.
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

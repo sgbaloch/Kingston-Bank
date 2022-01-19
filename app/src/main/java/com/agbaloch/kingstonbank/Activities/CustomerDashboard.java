@@ -22,6 +22,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+
+// This is the controller class of Customer dashboard screen
+
 public class CustomerDashboard extends AppCompatActivity {
 
     private TextView txtUsername, txtAccount, txtBalance;
@@ -39,6 +42,7 @@ public class CustomerDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // linking the class with the customer dashboard UI file
         setContentView(R.layout.activity_customer_dashboard);
 
         wireUIComponents();
@@ -49,6 +53,7 @@ public class CustomerDashboard extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
+        // Getting the customer data from firestore database and updating the views
         db.collection("Customer").whereEqualTo("username", username)
                 .limit(1).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -88,6 +93,7 @@ public class CustomerDashboard extends AppCompatActivity {
 
     }
 
+    // linking UI components
     private void wireUIComponents(){
 
         txtAccount = findViewById(R.id.txt_account);
@@ -114,6 +120,12 @@ public class CustomerDashboard extends AppCompatActivity {
     }
 
     public void viewStatement(View view) {
+
+        Intent intent = new Intent(CustomerDashboard.this, StatementActivity.class);
+        intent.putExtra("accountId", accountId);
+        intent.putExtra("accountNumber", accountNumber);
+        intent.putExtra("balance", balance);
+        startActivity(intent);
     }
 
     public void transferFunds(View view) {

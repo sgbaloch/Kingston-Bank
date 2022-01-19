@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.82"/>
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some text"
+        android:textColor="#000"
+        android:textSize="@dimen/list_item_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guide_date"/>
+
+    <TextView
+        android:id="@+id/txt_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some text"
+        android:textColor="#000"
+        android:textSize="@dimen/list_item_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_date"
+        app:layout_constraintEnd_toStartOf="@id/guide_type"/>
+
+    <TextView
+        android:id="@+id/txt_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some text"
+        android:textColor="#000"
+        android:textSize="@dimen/list_item_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_type"
+        app:layout_constraintEnd_toStartOf="@id/guide_in"/>
+
+    <TextView
+        android:id="@+id/txt_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some text"
+        android:textColor="#000"
+        android:textSize="@dimen/list_item_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_in"
+        app:layout_constraintEnd_toStartOf="@id/guide_out"/>
+
+    <TextView
+        android:id="@+id/txt_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some text"
+        android:textColor="#000"
+        android:textSize="@dimen/list_item_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_out"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

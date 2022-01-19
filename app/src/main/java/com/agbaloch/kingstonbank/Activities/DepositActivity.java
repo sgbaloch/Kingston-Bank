@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+// Controller class for Deposit screen
 public class DepositActivity extends AppCompatActivity {
 
     private EditText edtAmount;
@@ -55,6 +56,8 @@ public class DepositActivity extends AppCompatActivity {
         txtStatus = findViewById(R.id.lbl_status);
     }
 
+    // This method creates an object of deposit class by getting the deposit amount
+    // and adds this transaction into the database with unique transaction id
     public void depositMoney(View view) {
 
         if(edtAmount.getText().toString().isEmpty()){
@@ -117,6 +120,8 @@ public class DepositActivity extends AppCompatActivity {
 
     }
 
+    // This method updates the balance of account in the database after
+    // the transaction is successful
     private void updateAccountBalance(String accountId, double balance, double amount) {
 
         double newBalance = balance + amount;

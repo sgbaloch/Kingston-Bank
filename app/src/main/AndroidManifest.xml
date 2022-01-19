@@ -9,13 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.StatementActivity"></activity>
-        <activity android:name=".Activities.WithdrawActivity" />
-        <activity android:name=".Activities.DepositActivity" />
-        <activity android:name=".Activities.CustomerDashboard" />
-        <activity android:name=".Activities.RegisterActivity" />
-        <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".Activities.StatementActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activities.WithdrawActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.DepositActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.CustomerDashboard"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

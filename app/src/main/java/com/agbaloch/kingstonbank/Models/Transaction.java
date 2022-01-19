@@ -8,6 +8,7 @@ public class Transaction {
     private long accountNumber;
     private double amount;
     private Timestamp dateTime;
+    private int transactionType;
 
     public long getTransactionId() {
         return transactionId;
@@ -39,5 +40,9 @@ public class Transaction {
 
     public void setDateTime(Timestamp dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public int getTransactionType() {
+        return transactionType;
     }
 }
